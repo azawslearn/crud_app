@@ -7,7 +7,7 @@ app = Flask(__name__)
 base_url = ''  
 
 
-@app.route('/')
+@app.route('/crud')
 def index():
     return render_template('index.html')
 
