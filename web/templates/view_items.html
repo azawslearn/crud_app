@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Items</title>
+</head>
+
+<body>
+    <h2>Inventory Items</h2>
+    {% if items %}
+    <ul>
+        {% for item in items %}
+        <li>
+            {{ item.name }} - Quantity: {{ item.quantity }}
+            <!-- Delete form for each item -->
+            <form action="/deleteItem/{{ item.id }}" method="post" style="display: inline;">
+                <input type="submit" value="Delete">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No items in inventory.</p>
+    {% endif %}
+</body>
+
+</html>
