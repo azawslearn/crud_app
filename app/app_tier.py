@@ -1,11 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+import config  # Import configuration
 
 app = Flask(__name__)
 
-# SQLAlchemy configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://ivansto:EmersonFitipaldi1!@3.80.179.243/TEST_DB'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Construct the SQLAlchemy Database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{config.DB_USER}:{config.DB_PASSWORD}@{config.DB_HOST}/{config.DB_NAME}'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = config.SQLALCHEMY_TRACK_MODIFICATIONS
 
 db = SQLAlchemy(app)
 
