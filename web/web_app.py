@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 # Define the base URL of your Flask-SQLAlchemy backend
-base_url = ''  
+base_url = 'http://lb.loadbalancer.internal:5001'
 
 @app.route('/crud')
 def index():
